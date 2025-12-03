@@ -51,12 +51,12 @@ MageSEO is a production-ready SaaS application that automates SEO metadata gener
 git clone https://github.com/yourusername/mageseo.git
 cd mageseo
 
-# Install dependencies and setup
-composer setup
-
-# Configure environment
+# Configure environment FIRST
 cp .env.example .env
-# Edit .env with your database, Redis, Magento, and OpenAI credentials
+# Edit .env with your database, Redis, Magento, and Google Gemini API key
+
+# Install dependencies and setup (requires .env to be configured)
+composer setup
 
 # Generate application key
 php artisan key:generate
@@ -116,8 +116,9 @@ REDIS_HOST=127.0.0.1
 MAGENTO_BASE_URL=https://your-magento-store.com
 MAGENTO_TOKEN=your_integration_token_here
 
-# OpenAI API (for Google Gemini)
-OPENAI_API_KEY=your_google_gemini_api_key
+# Google Gemini API Configuration
+GEMINI_API_KEY=your_google_gemini_api_key
+GEMINI_MODEL=gemini-2.5-flash
 ```
 
 ### Default Credentials

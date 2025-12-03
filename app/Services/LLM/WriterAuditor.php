@@ -527,11 +527,14 @@ class WriterAuditor
         if (preg_match('/\{[^{}]*"meta_title"[^{}]*\}/s', $response, $matches)) {
             $json = json_decode($matches[0], true);
             if ($json && isset($json['meta_title'])) {
-                return [
+                $result = [
                     'meta_title' => $json['meta_title'] ?? '',
                     'meta_description' => $json['meta_description'] ?? '',
                     'meta_keywords' => $json['meta_keywords'] ?? '',
                 ];
+
+                // Enforce character limits as safeguard
+                return $this->enforceCharacterLimits($result);
             }
         }
 
@@ -552,7 +555,35 @@ class WriterAuditor
             $result['meta_keywords'] = trim($matches[1], " \t\n\r\"'");
         }
 
-        return $result;
+        // Enforce character limits as safeguard
+        return $this->enforceCharacterLimits($result);
+    }
+
+    /**
+     * Enforce character limits on SEO content.
+     * Truncates content if it exceeds the limits.
+     */
+    protected function enforceCharacterLimits(array $content): array
+    {
+        // meta_title: max 60 characters
+        if (isset($content['meta_title']) && strlen($content['meta_title']) > 60) {
+            Log::warning('Writer generated meta_title exceeding 60 chars, truncating', [
+                'original_length' => strlen($content['meta_title']),
+                'original' => $content['meta_title'],
+            ]);
+            $content['meta_title'] = substr($content['meta_title'], 0, 57) . '...';
+        }
+
+        // meta_description: max 160 characters
+        if (isset($content['meta_description']) && strlen($content['meta_description']) > 160) {
+            Log::warning('Writer generated meta_description exceeding 160 chars, truncating', [
+                'original_length' => strlen($content['meta_description']),
+                'original' => $content['meta_description'],
+            ]);
+            $content['meta_description'] = substr($content['meta_description'], 0, 157) . '...';
+        }
+
+        return $content;
     }
 
     /**
@@ -662,7 +693,12 @@ CRITICAL RULES:
 1. ONLY use information provided in the product data
 2. DO NOT invent features, specifications, or claims
 3. Stay factual and accurate to the source data
-4. Generate meta_title (max 60 chars), meta_description (max 160 chars), and meta_keywords (comma-separated)
+4. CHARACTER LIMITS ARE MANDATORY:
+   - meta_title: MUST be 60 characters or less (strict limit)
+   - meta_description: MUST be 160 characters or less (strict limit)
+   - meta_keywords: comma-separated list
+5. If you cannot fit information within character limits, prioritize the most important features
+6. Count characters carefully before outputting
 
 Output format (JSON):
 {
@@ -670,6 +706,8 @@ Output format (JSON):
   "meta_description": "...",
   "meta_keywords": "..."
 }
+
+IMPORTANT: Double-check your character counts. meta_title ≤ 60 chars, meta_description ≤ 160 chars.
 PROMPT;
     }
 
