@@ -1,0 +1,58 @@
+name: Laravel CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: laravel_seo_platform_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping -h 127.0.0.1" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Copy .env
+      run: cp .env.example .env
+      working-directory: ./laravel-filament-seo-platform
+    - name: Install Dependencies
+      run: composer update --no-ansi --no-interaction --no-progress --prefer-dist --optimize-autoloader --no-scripts
+      working-directory: ./laravel-filament-seo-platform
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+      working-directory: ./laravel-filament-seo-platform
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+        extensions: pdo_mysql, mbstring, gd, dom, fileinfo, bcmath, xml
+        tools: composer:v2
+        coverage: none # Disable Xdebug or PCOV for faster execution if not needed
+
+    - name: Configure database connection for tests
+      run: |
+        sed -i 's/DB_CONNECTION=sqlite/DB_CONNECTION=mysql/' .env
+        sed -i 's/DB_HOST=127.0.0.1/DB_HOST=127.0.0.1/' .env
+        sed -i 's/DB_PORT=3306/DB_PORT=3306/' .env
+        sed -i 's/DB_DATABASE=laravel/DB_DATABASE=laravel_seo_platform_test/' .env
+        sed -i 's/DB_USERNAME=root/DB_USERNAME=root/' .env
+        sed -i 's/DB_PASSWORD=/DB_PASSWORD=/' .env
+      working-directory: ./laravel-filament-seo-platform
+
+    - name: Run Migrations
+      run: php artisan migrate --force
+      working-directory: ./laravel-filament-seo-platform
+
+    - name: Run Tests
+      run: php artisan test
+      working-directory: ./laravel-filament-seo-platform
