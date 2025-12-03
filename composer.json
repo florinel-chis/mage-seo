@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "mageseo/mageseo",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "AI-powered SEO content generation platform for Magento 2 e-commerce stores.",
+    "keywords": ["magento", "seo", "ai", "llm", "filament", "laravel"],
     "license": "MIT",
     "require": {
         "php": "^8.2",

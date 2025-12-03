@@ -1,4 +1,4 @@
-# Laravel SEO Platform
+# MageSEO
 
 > AI-powered SEO content generation platform for Magento 2 e-commerce stores with intelligent hallucination detection and approval workflows.
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-Laravel SEO Platform is a production-ready SaaS application that automates SEO metadata generation for Magento 2 product catalogs using a **Writer-Auditor LLM pipeline**. The system integrates with Google Gemini AI to generate meta titles, descriptions, and keywords while automatically detecting and flagging potential hallucinations before human review.
+MageSEO is a production-ready SaaS application that automates SEO metadata generation for Magento 2 product catalogs using a **Writer-Auditor LLM pipeline**. The system integrates with Google Gemini AI to generate meta titles, descriptions, and keywords while automatically detecting and flagging potential hallucinations before human review.
 
 ### Key Features
 
@@ -48,8 +48,8 @@ Laravel SEO Platform is a production-ready SaaS application that automates SEO m
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/laravel-seo-platform.git
-cd laravel-seo-platform
+git clone https://github.com/yourusername/mageseo.git
+cd mageseo
 
 # Install dependencies and setup
 composer setup
@@ -95,14 +95,14 @@ Configure the following in your `.env` file:
 
 ```bash
 # Application
-APP_NAME="SEO Platform"
+APP_NAME="MageSEO"
 APP_URL=http://localhost:8003
 
 # Database
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=laravel_seo_platform
+DB_DATABASE=mageseo
 DB_USERNAME=root
 DB_PASSWORD=
 
@@ -297,8 +297,8 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/laravel-seo-platform/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/laravel-seo-platform/discussions)
+- **Issues**: [GitHub Issues](https://github.com/yourusername/mageseo/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/mageseo/discussions)
 - **Documentation**: [/docs](docs/)
 
 ---

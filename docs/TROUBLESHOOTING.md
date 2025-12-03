@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-Common issues and solutions for the Laravel SEO Platform.
+Common issues and solutions for MageSEO.
 
 ## Table of Contents
 
@@ -613,7 +613,7 @@ php artisan key:generate
 
 2. **Create database if missing**:
    ```sql
-   CREATE DATABASE laravel_seo_platform;
+   CREATE DATABASE mageseo;
    ```
 
 3. **Verify credentials**:
@@ -728,8 +728,8 @@ php artisan tinker
 
 ### Community Support
 
-- **GitHub Issues**: [Report bugs](https://github.com/yourusername/laravel-seo-platform/issues)
-- **GitHub Discussions**: [Ask questions](https://github.com/yourusername/laravel-seo-platform/discussions)
+- **GitHub Issues**: [Report bugs](https://github.com/yourusername/mageseo/issues)
+- **GitHub Discussions**: [Ask questions](https://github.com/yourusername/mageseo/discussions)
 - **Stack Overflow**: Tag `laravel` and `filament`
 
 ### Useful Commands

@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide covers deploying the Laravel SEO Platform to production environments.
+This guide covers deploying MageSEO to production environments.
 
 ## Table of Contents
 
@@ -118,7 +118,7 @@ sudo chown $USER:$USER /var/www/seo-platform
 cd /var/www/seo-platform
 
 # Clone repository (or upload via FTP/SFTP)
-git clone https://github.com/yourusername/laravel-seo-platform.git .
+git clone https://github.com/yourusername/mageseo.git .
 
 # Install dependencies
 composer install --optimize-autoloader --no-dev

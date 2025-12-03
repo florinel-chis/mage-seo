@@ -1,6 +1,6 @@
 # Architecture Guide
 
-This document provides a comprehensive overview of the Laravel SEO Platform's architecture, design patterns, and component interactions.
+This document provides a comprehensive overview of MageSEO's architecture, design patterns, and component interactions.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ This document provides a comprehensive overview of the Laravel SEO Platform's ar
 
 ## System Overview
 
-The Laravel SEO Platform is built using a **service-oriented architecture** with clear separation of concerns:
+MageSEO is built using a **service-oriented architecture** with clear separation of concerns:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

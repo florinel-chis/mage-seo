@@ -1,6 +1,6 @@
 # Development Guide
 
-This guide helps developers set up a local development environment and contribute to the Laravel SEO Platform.
+This guide helps developers set up a local development environment and contribute to MageSEO.
 
 ## Table of Contents
 
@@ -31,8 +31,8 @@ Install the following on your development machine:
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/laravel-seo-platform.git
-cd laravel-seo-platform
+git clone https://github.com/yourusername/mageseo.git
+cd mageseo
 
 # Install PHP dependencies
 composer install
@@ -117,7 +117,7 @@ APP_URL=http://localhost:8003
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=laravel_seo_platform
+DB_DATABASE=mageseo
 DB_USERNAME=root
 DB_PASSWORD=
 
@@ -370,12 +370,12 @@ class SeoJobWorkflowTest extends TestCase
 Tests use a separate database configured in `phpunit.xml`:
 
 ```xml
-<env name="DB_DATABASE" value="laravel_seo_platform_test"/>
+<env name="DB_DATABASE" value="mageseo_test"/>
 ```
 
 Create the test database:
 ```bash
-mysql -u root -p -e "CREATE DATABASE laravel_seo_platform_test"
+mysql -u root -p -e "CREATE DATABASE mageseo_test"
 ```
 
 ### Factories
