@@ -118,7 +118,7 @@ sudo chown $USER:$USER /var/www/seo-platform
 cd /var/www/seo-platform
 
 # Clone repository (or upload via FTP/SFTP)
-git clone https://github.com/yourusername/mageseo.git .
+git clone https://github.com/florinel-chis/mage-seo.git .
 
 # Install dependencies
 composer install --optimize-autoloader --no-dev

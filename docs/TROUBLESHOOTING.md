@@ -728,8 +728,8 @@ php artisan tinker
 
 ### Community Support
 
-- **GitHub Issues**: [Report bugs](https://github.com/yourusername/mageseo/issues)
-- **GitHub Discussions**: [Ask questions](https://github.com/yourusername/mageseo/discussions)
+- **GitHub Issues**: [Report bugs](https://github.com/florinel-chis/mage-seo/issues)
+- **GitHub Discussions**: [Ask questions](https://github.com/florinel-chis/mage-seo/discussions)
 - **Stack Overflow**: Tag `laravel` and `filament`
 
 ### Useful Commands

@@ -31,7 +31,7 @@ Install the following on your development machine:
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/mageseo.git
+git clone https://github.com/florinel-chis/mage-seo.git
 cd mageseo
 
 # Install PHP dependencies

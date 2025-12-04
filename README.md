@@ -48,7 +48,7 @@ MageSEO is a production-ready SaaS application that automates SEO metadata gener
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mageseo.git
+git clone https://github.com/florinel-chis/mage-seo.git
 cd mageseo
 
 # Configure environment FIRST
@@ -283,7 +283,7 @@ Please ensure:
 
 ## Security
 
-If you discover any security vulnerabilities, please email security@example.com instead of using the issue tracker.
+If you discover any security vulnerabilities, please email info@magendoo.ro instead of using the issue tracker.
 
 ## License
 
@@ -298,8 +298,8 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/mageseo/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/mageseo/discussions)
+- **Issues**: [GitHub Issues](https://github.com/florinel-chis/mage-seo/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/florinel-chis/mage-seo/discussions)
 - **Documentation**: [/docs](docs/)
 
 ---
